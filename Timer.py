@@ -9,12 +9,13 @@ import os
 HEIGHT = 2
 WIDTH = 10
 
-pressed = False
+
 
 def buttonpress():
     pressed = True
 
 def countdown():
+    pressed = False
     query = sys.argv[1]
     #query = 1
     zeit = int(query)*60
