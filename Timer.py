@@ -57,7 +57,7 @@ restartButton = tk.Button(root, text="Restart", font=40, command=buttonpress)
 restartButton.pack(expand= True, fill="x")
 
 
-
+countdown()
 
 
 root.mainloop()
