@@ -11,26 +11,19 @@ WIDTH = 10
 
 
 
-def buttonpress():
-    pressed = True
-
 def countdown():
-    pressed = False
     query = sys.argv[1]
     #query = 1
     zeit = int(query)*60
 
     def timetime(zeit):
-        if pressed:
-            zeit = int(query)*60
-            pressed = False
         if zeit >= 0:
             m, s = divmod(zeit, 60)
             h, m = divmod(m, 60)
             zeit = zeit - 1
             label.config(text=str(h).zfill(2) + ":" +
                         str(m).zfill(2) + ":" + str(s).zfill(2))
-            label.after(1000, lambda: timetime(zeit))
+            label.after(1000, timetime(zeit))
         else:
             file = "./Alarm.mp3"
             os.system("mpg123 " + file)
@@ -55,9 +48,6 @@ root.title("Timer")
 label = tk.Label(root, height=HEIGHT, width=WIDTH, font=(
     "Impact", 35), bd=5, fg="white", bg="black", text="hey")
 label.pack(expand=True)
-
-restartButton = tk.Button(root, text="Restart", font=40, command=buttonpress)
-restartButton.pack(expand= True, fill="x")
 
 
 countdown()
