@@ -11,26 +11,30 @@ WIDTH = 10
 
 
 
+
 def buttonpress():
-    pressed = True
+    buttonpressed = True
+    print ("Yes")
 
 def countdown():
-    pressed = False
     query = sys.argv[1]
     #query = 1
     zeit = int(query)*60
+    global buttonpressed
+    buttonpressed= False
 
     def timetime(zeit):
-        if pressed:
-            zeit = int(query)*60
-            pressed = False
         if zeit >= 0:
             m, s = divmod(zeit, 60)
             h, m = divmod(m, 60)
             zeit = zeit - 1
             label.config(text=str(h).zfill(2) + ":" +
                         str(m).zfill(2) + ":" + str(s).zfill(2))
-            label.after(1000, lambda: timetime(zeit))
+            if not buttonpressed:
+                label.after(1000, timetime(zeit))
+            else: 
+                buttonpressed = False
+                label.after(1000, timetime(int(query)*60))
         else:
             file = "./Alarm.mp3"
             os.system("mpg123 " + file)
