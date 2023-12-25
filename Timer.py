@@ -9,6 +9,8 @@ import os
 HEIGHT = 2
 WIDTH = 10
 
+pressed = False
+
 def buttonpress():
     pressed = True
 
