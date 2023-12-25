@@ -23,7 +23,7 @@ def countdown():
             zeit = zeit - 1
             label.config(text=str(h).zfill(2) + ":" +
                         str(m).zfill(2) + ":" + str(s).zfill(2))
-            label.after(1000, lampda: timetime(zeit))
+            label.after(1000, lambda: timetime(zeit))
         else:
             file = "./Alarm.mp3"
             os.system("mpg123 " + file)
