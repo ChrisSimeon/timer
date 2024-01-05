@@ -1,1 +1,0 @@
-wsl -e /usr/bin/python3 ./Timer.py 25
