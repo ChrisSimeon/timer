@@ -43,7 +43,6 @@ class App(tk.Frame):
             self.zeit -= 1
             self.label.config(text=str(h).zfill(2) + ":" +
                         str(m).zfill(2) + ":" + str(s).zfill(2))
-            print(self.buttonpressed.get())
             self.label.after(1000, lambda: self.countdown())
         else:
             file = "./Alarm.mp3"
